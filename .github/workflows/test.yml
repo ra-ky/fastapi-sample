@@ -1,0 +1,11 @@
+name: Trigger repository_dispatch
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: gh api /repos/ra-ky/deploy-server/dispatches -f event_type='demo_event'
+
