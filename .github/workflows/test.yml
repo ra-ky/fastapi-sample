@@ -8,4 +8,6 @@ jobs:
 
     steps:
       - run: gh api /repos/ra-ky/deploy-server/dispatches -f event_type='demo_event'
+        env:
+          GH_TOKEN: ${{ github.token }}
 
