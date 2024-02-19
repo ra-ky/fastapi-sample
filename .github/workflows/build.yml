@@ -9,10 +9,18 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Build and push Docker image
+      
+      - name: Login to Docker Registry
         run: |
-          # docker build -t ai-rebornsoft.asuscomm.com:5000/api:latest .
-          # docker push ai-rebornsoft.asuscomm.com:5000/api:latest
-          curl https://ai-rebornsoft.asuscomm.com:5000/v2/_catalog
+          echo "${{ secrets.DOCKER_PASSWD }}" | docker login https://ai-rebornsoft.asuscomm.com:5000 -u ${{ secrets.DOCKER_USER }} --password-stdin
 
+      - name: Docker Build and Push
+        run: |
+          current_time=$(date +"%Y%m%d%H%M%S")
+          registry=ai-rebornsoft.asuscomm.com:5000/api
+          docker build -t $(registry):$(current_time) -t $(registry):latest .
+          docker push $(registry):$(current_time)
+          docker push $(registry):latest
+          docker logout
+
+      
