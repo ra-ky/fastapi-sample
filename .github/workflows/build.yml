@@ -1,0 +1,17 @@
+name: Build Test
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t ai-rebornsoft.asuscomm.com:5000/api:latest .
+          docker push ai-rebornsoft.asuscomm.com:5000/api:latest
+
