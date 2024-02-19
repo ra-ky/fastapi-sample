@@ -12,6 +12,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ai-rebornsoft.asuscomm.com:5000/api:latest .
-          docker push ai-rebornsoft.asuscomm.com:5000/api:latest
+          # docker build -t ai-rebornsoft.asuscomm.com:5000/api:latest .
+          # docker push ai-rebornsoft.asuscomm.com:5000/api:latest
+          curl https://ai-rebornsoft.asuscomm.com:5000/v2/_catalog
 
