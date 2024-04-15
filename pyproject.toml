@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "fastapi-sample"
+version = "0.1.0"
+description = ""
+authors = ["raky <raky@daum.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.110.1"
+uvicorn = "^0.29.0"
+faker = "^24.9.0"
+sqlmodel = "^0.0.16"
+sqlalchemy = "^2.0.29"
+asyncpg = "^0.29.0"
+aiomysql = "^0.2.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.0"
+flake8 = "^7.0.0"
+
+[tool.black]
+line-length = 90
+target-version = ['py312']
+include = ['\.pyi?$', 'hello']
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+  | profiling
+)/
+'''
+
+[tool.flake8]
+ignore = "E203, E501, W503"
+max-line-length = 88
+exclude = ".git,__pycache__,docs/,old/,build/,dist/"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

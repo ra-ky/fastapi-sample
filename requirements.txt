@@ -1,2 +1,7 @@
 fastapi
 uvicorn
+faker
+sqlmodel
+sqlalchemy
+asyncpg
+aiomysql

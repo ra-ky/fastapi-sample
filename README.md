@@ -1,7 +1,21 @@
-### docker build and push
+### docker compose build
 
 ```
-$ docker build -t fastapi .
-$ docker tag fastapi localhost:5000/fastapi
-$ docker push localhost:5000/fastapi
+# fastapi-sample-app image build
+$ docker compose build
 ```
+
+### docker compose up
+
+```
+# backgroud run
+$ docker compose up -d
+
+# background run and fastapi-sample-app image build
+$ docker compose up -d --build
+```
+
+
+### fastapi docs
+
+http://localhost:8000/docs
